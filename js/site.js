@@ -99,15 +99,61 @@ function buildDropDown() {
 
 
 }
+//display stats for the filtered events
+function displayStats(filteredEvents) {
+    let total = 0;
+    let average = 0;
+    let most = 0;
+    let least = -1;
+    let currentAttendance = 0;
 
-function displayStats() {
+    for (let index = 0; index < filteredEvents.length; index++) {
+        currentAttendance = filteredEvents[index].attendance;
+        total += currentAttendance;
+
+        if (most < currentAttendance) {
+            most = currentAttendance;
+        }
+
+        if (least > currentAttendance) {
+            least = currentAttendance
+        }
+
+    }
+    //calculates average 
+    average = total / filteredEvents.length
+
+    document.getElementById("total").innerHTML = total.toLocaleString();
+    document.getElementById("most").innerHTML = most.toLocaleString();
+    document.getElementById("average").innerHTML = average.toLocaleString(
+        undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }
+    );
+    document.getElementById("least").innerHTML = least.toLocaleString();
 
 }
 
 //This gets the events for the selected city
 function getEvents(ddElement) {
-
     let cityName = ddElement.getAttribute("data-string");
-    alert("Hello " + cityName);
+    let curEvents = events;
+    let filteredEvents = curEvents;
 
+    document.getElementById("statsHeader").innerHTML = `stats for ${cityName} Events`
+
+    if (cityName != "All") {
+
+        //this filters the array using a "filter array" method
+        filteredEvents = curEvents.filter(
+            function (item) {
+                if (item.city == cityName) {
+                    return item;
+                }
+            })
+
+    }
+
+    displayStats(filteredEvents)
 }
