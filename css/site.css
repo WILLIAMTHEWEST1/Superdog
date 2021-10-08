@@ -1,54 +1,61 @@
-
-:root{
-    --primary-color:#001e43;
+:root {
+    --primary-color: #001e43;
     --secondary-color: #ff993b;
     --dark-color: #292929;
     --white-color: #dfe3e4;
 
 }
 
-body{
+
+
+body {
     color: var(--bs-dark-color);
 }
 
-main>.container{
+main>.container {
     padding: 60px 15px 0;
 }
 
-#content{
+#content {
     min-height: 90vh;
 }
 
-nav{
+nav {
     background-color: var(--dark-color);
 }
 
-.footer{
+.footer {
     background-color: var(--dark-color);
     color: var(--white-color)
 }
-footer.social>a{
-    color:var(--white-color);
+
+footer.social>a {
+    color: var(--white-color);
 
 }
-footer .social>a:hover{
+
+footer .social>a:hover {
     opacity: .9;
-    color:var(--secondary-color);
+    color: var(--secondary-color);
 }
-.bsicon{
+
+.bsicon {
     color: yellow;
 }
-.jsicon{
+
+.jsicon {
     color: purple;
 }
-.html5icon{
+
+.html5icon {
     color: red
 }
-.css3icon{
-    color:blue
+
+.css3icon {
+    color: blue
 }
 
-.checklist>li i{
+.checklist>li i {
     color: var(--secondary-color);
 }
 
