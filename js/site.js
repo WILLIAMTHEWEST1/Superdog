@@ -111,7 +111,7 @@ function displayStats(filteredEvents) {
     let least = -1;
     let currentAttendance = 0;
 
-    for (let index = 0; index < filteredEvents.length; index++) {
+    for (let index = 0; index <filteredEvents.length; index++) {
         currentAttendance = filteredEvents[index].attendance;
         total += currentAttendance;
 
@@ -123,19 +123,20 @@ function displayStats(filteredEvents) {
             least = currentAttendance
         }
 
+         average = total / filteredEvents.length
     }
     //calculates average 
-    average = total / filteredEvents.length
 
     document.getElementById("total").innerHTML = total.toLocaleString();
     document.getElementById("most").innerHTML = most.toLocaleString();
+    document.getElementById("least").innerHTML = average.toLocaleString();
     document.getElementById("average").innerHTML = average.toLocaleString(
         undefined, {
             minimumFractionDigits: 0,
-            maximumFractionDigits: 0
+            maximumFractionDigits: 0,
         }
     );
-    document.getElementById("least").innerHTML = least.toLocaleString();
+   
 
 }
 
